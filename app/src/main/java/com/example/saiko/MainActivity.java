@@ -41,15 +41,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-//    //Variabel Tombol"
-//    private Button btnHapusAkun, btnLogOut;
-//    private TextView tvNama, tvEmail;
-//
-//    //Variabel Firebase
-//    private FirebaseAuth auth;
-//    private DatabaseReference db;
-//    private FirebaseDatabase dbf;
-
     //Bottom Navigation
     BottomNavigationView bottomNavigationView;
 
@@ -92,69 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        //Profile
-//        //get firebase auth instance
-//        auth = FirebaseAuth.getInstance();
-//
-//        //get current user
-//        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//
-//        //Hapus akun
-//        btnHapusAkun = (Button) findViewById(R.id.btn_hapus_akun);
-//        btnHapusAkun.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(user != null){
-//                    user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<Void> task) {
-//                            if(task.isSuccessful()){
-//                                Toast.makeText(MainActivity.this, "Akun Anda berhasil dihapus", Toast.LENGTH_SHORT).show();
-//                                startActivity(new Intent(MainActivity.this, PilihMasukActivity.class));
-//                                finish();
-//                            }
-//                        }
-//                    });
-//                }
-//            }
-//        });
-//
-//        //Sign Out
-//        btnLogOut = (Button) findViewById(R.id.btn_keluar);
-//        btnLogOut.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                auth.signOut();
-//                startActivity(new Intent(MainActivity.this, PilihMasukActivity.class));
-//                finish();
-//            }
-//        });
-//
-//        //Liatin nama sama email
-//        tvNama = (TextView) findViewById(R.id.tv_nama_pengguna);
-//        tvEmail = (TextView) findViewById(R.id.tv_email_pengguna);
-//
-//        // Baca data
-//        dbf = FirebaseDatabase.getInstance();
-//        db = dbf.getReference("Data Pengguna");
-//        Query query = db.orderByChild("email").equalTo(user.getEmail());
-//        query.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for (DataSnapshot ds : dataSnapshot.getChildren()){
-//                    String Rnama = "" + ds.child("nama").getValue();
-//                    String Remail = "" + ds.child("email").getValue();
-//
-//                    tvNama.setText(Rnama);
-//                    tvEmail.setText(Remail);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+
     }
 
     public void masukPsikologi(View view) {
