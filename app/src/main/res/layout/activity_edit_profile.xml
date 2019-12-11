@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,20 +13,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="20dp"
-        android:paddingTop="40dp"
-        android:paddingRight="20dp"
+        android:padding="30dp"
         android:orientation="vertical">
-
 
         <TextView
             android:id="@+id/tv_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="Nama"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Nama" />
 
         <EditText
             android:id="@+id/et_nama"
@@ -42,9 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="Alamat Email"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Alamat Email"/>
 
         <EditText
             android:id="@+id/et_email"
@@ -60,9 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="Nomor Handphone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Nomor Handphone" />
 
         <EditText
             android:id="@+id/et_no_hp"
@@ -78,9 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="Usia"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Usia" />
 
         <EditText
             android:id="@+id/et_usia"
@@ -89,7 +78,6 @@
             android:hint="Masukkan usia Anda"
             android:inputType="number"
             android:layout_marginBottom="15dp"/>
-
 
         <RadioGroup
             android:id="@+id/jenis_kelamin"
@@ -140,7 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:hint="Masukkan domisili Anda"
-            android:inputType="textLongMessage"
+            android:inputType="text"
             android:layout_marginBottom="15dp"/>
 
         <Button
@@ -153,8 +141,7 @@
             android:text="Simpan Perubahan"
             android:textAllCaps="false"
             android:textColor="@color/colorNavigationText" />
-
     </LinearLayout>
 </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

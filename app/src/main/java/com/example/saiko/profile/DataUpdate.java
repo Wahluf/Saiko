@@ -1,17 +1,18 @@
-package com.example.saiko.masuk;
+package com.example.saiko.profile;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
 
 @IgnoreExtraProperties
-public class DataRegis implements Serializable {
+public class DataUpdate implements Serializable {
     private String nama, email, noHp, usia, jenisKel, domisili, UID;
     private String key;
 
-    public DataRegis(){
+    public DataUpdate(){
 
     }
+
 
     public String getKey(){
         return key;
@@ -69,10 +70,6 @@ public class DataRegis implements Serializable {
         this.domisili = domisili;
     }
 
-    public String getUID() { return UID; }
-
-    public void setUID(String UID) { this.UID = UID; }
-
     @Override
     public String toString(){
         return " " + nama + "\n" +
@@ -80,17 +77,15 @@ public class DataRegis implements Serializable {
                 " " + noHp + "\n" +
                 " " + usia + "\n" +
                 " " + jenisKel + "\n" +
-                " " + domisili + "\n" +
-                " " + UID;
+                " " + domisili;
     }
 
-    public DataRegis(String nm, String eml, String nohp, String usi4, String jenisk, String dmsli, String uid){
+    public DataUpdate(String nm, String eml, String nohp, String usi4, String jenisk, String dmsli){
         nama = nm;
         email = eml;
         noHp = nohp;
         usia = usi4;
         jenisKel = jenisk;
         domisili = dmsli;
-        UID = uid;
     }
 }
