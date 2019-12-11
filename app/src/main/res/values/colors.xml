@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#24A9E1</color>
+    <color name="colorPrimaryDark">#24A9E1</color>
+    <color name="colorAccent">#DF0756</color>
+    <color name="colorNavigationText">#FFFFFF</color>
+    <color name="hitam">#0B0000</color>
+    <color name="abu_abu">#808080</color>
+    <color name="putih">#ffffff</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="lavender">#E6E6FA</color>
+    <color name="light_blue">#ADD8E6</color>
+    <color name="mediumPurple">#9370DB</color>
+    <color name="gray">#808080</color>
+    <color name="black">#000000</color>
+</resources>

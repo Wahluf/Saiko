@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile.EditProfileActivity">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingTop="40dp"
+        android:paddingRight="20dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Nama"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_nama"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Masukkan Nama Anda"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="15dp"/>
+
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Alamat Email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Masukkan Alamat Email Anda"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="15dp"/>
+
+
+        <TextView
+            android:id="@+id/tv_no_hp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Nomor Handphone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_no_hp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Masukkan nomor handphone Anda"
+            android:inputType="number"
+            android:layout_marginBottom="15dp"/>
+
+
+        <TextView
+            android:id="@+id/tv_usia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Usia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_usia"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Masukkan usia Anda"
+            android:inputType="number"
+            android:layout_marginBottom="15dp"/>
+
+
+        <RadioGroup
+            android:id="@+id/jenis_kelamin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:id="@+id/tv_jenis_kelamin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_laki_laki"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Laki - laki"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <RadioButton
+                    android:id="@+id/rb_perempuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Perempuan"
+                    android:fontFamily="sans-serif-medium"/>
+            </LinearLayout>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_domisili"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Domisili"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_domisili"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Masukkan domisili Anda"
+            android:inputType="textLongMessage"
+            android:layout_marginBottom="15dp"/>
+
+        <Button
+            android:id="@+id/btn_simpan"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btn_rounded_biru"
+            android:fontFamily="sans-serif-medium"
+            android:text="Simpan Perubahan"
+            android:textAllCaps="false"
+            android:textColor="@color/colorNavigationText" />
+
+    </LinearLayout>
+</ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

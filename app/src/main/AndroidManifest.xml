@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.example.saiko">
+
+    <dist:module dist:instant="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/saiko_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/saiko_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".tesPsikolog.HasilTestActivity"
+            android:label="Hasil Test"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".tesPsikolog.TestActivity" />
+        <activity
+            android:name=".konseling.KonselingDetailActivity"
+            android:parentActivityName=".konseling.KonselingUtamaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".konseling.KonselingUtamaActivity"
+            android:label="Konseling Gratis"
+            android:parentActivityName=".profile.ProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".profile.TentangActivity"
+            android:label="Tentang Aplikasi"
+            android:parentActivityName=".profile.ProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".tesPsikolog.WelcomingTesActivity"
+            android:label="Selamat Datang"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".tesPsikolog.PeringatanTesActivity"
+            android:label="Peringatan"
+            android:parentActivityName=".tesPsikolog.WelcomingTesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".meditasi.SesiMeditasiActivity"
+            android:label="Sesi Meditasi"
+            android:parentActivityName=".meditasi.MenuMeditasiActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".meditasi.MenuMeditasiActivity"
+            android:label="Menu Meditasi"
+            android:parentActivityName=".meditasi.MenuMeditasiActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".profile.EditProfileActivity"
+            android:label="Edit Profile"
+            android:parentActivityName=".profile.ProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name=".masuk.PilihMasukActivity" />
+        <activity android:name=".masuk.DaftarActivity" />
+        <activity android:name=".FirstActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".masuk.MasukActivity" />
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

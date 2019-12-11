@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".konseling.KonselingDetailActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_item_profil"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_item_profil"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_konseling"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:hint="Nama Tempat Konseling"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_kategori"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif"
+                    android:hint="nama kategori"
+                    android:textColor="@color/hitam"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!--                    <ImageView-->
+                    <!--                        android:layout_width="20dp"-->
+                    <!--                        android:layout_height="20dp"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:src="@drawable/ic_tempat" />-->
+
+                    <TextView
+                        android:id="@+id/tv_alamat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:hint="lokasi"
+                        android:textColor="@color/abu_abu"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_item_study"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/ic_book" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Deskripsi"
+                        android:textColor="@color/hitam"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_deskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="35dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="deskripsi"
+                    android:textSize="12dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_item_praktik"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/ic_waktu" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Waktu Layanan"
+                        android:textColor="@color/hitam"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_waktu_layananan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="35dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="waktu layanan"
+                    android:textSize="12dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_item_str_number"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/ic_callcenter" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Call Center Layanan"
+                        android:textColor="@color/hitam"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_nomor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="35dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="nomor layanan"
+                    android:textSize="12dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_item"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/ic_konselor" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Daftar Konselor Profesional"
+                        android:textColor="@color/hitam"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_daftar_konselor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="35dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="nama konselor profesional"
+                    android:textSize="12dp"
+                    android:layout_marginBottom="30dp"/>
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/img_item_website"-->
+<!--                        android:layout_width="19dp"-->
+<!--                        android:layout_height="19dp"-->
+<!--                        android:layout_alignParentEnd="false"-->
+<!--                        android:layout_alignParentBottom="true"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginBottom="5dp"-->
+<!--                        android:src="@drawable/ic_web" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:fontFamily="sans-serif-medium"-->
+<!--                        android:text="Website"-->
+<!--                        android:textColor="@color/hitam"-->
+<!--                        android:textSize="12dp"-->
+<!--                        android:textStyle="bold" />-->
+<!--                </LinearLayout>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_website"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginLeft="35dp"-->
+<!--                    android:layout_marginBottom="30dp"-->
+<!--                    android:fontFamily="sans-serif-medium"-->
+<!--                    android:hint="website"-->
+<!--                    android:textSize="12dp" />-->
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

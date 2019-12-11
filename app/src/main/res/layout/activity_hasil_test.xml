@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".tesPsikolog.HasilTestActivity">
+
+    <TextView
+        android:id="@+id/tv_peringatan_tes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasil Tes Anda"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_isi_peringatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_peringatan_tes"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tv_border"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_hasil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_peringatan_konsidi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Tetap semangat dan jaga kesehatan Anda!!!"
+            android:textSize="12dp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/ll_isi_peringatan"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_rounded_biru"
+        android:text="Ok"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:onClick="masukHome"/>
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Saiko</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="ketentuan_tes">\n1. Terdapat 14 pertanyaan dan poin dari 1 - 5 sebagai pilihan jawaban yang menggambarkan kondisi anda saat ini.   \n\n2. Jawablah pertanyaan sesuai dengan keadaan nyata anda saat ini.   \n\n3. Apabila anda telah mendapatkan hasil, anda dapat mengikuti saran yang telah kami berikan atau dapat langsung menghubungi seseorang yang profesional.</string>
+    <string name="pertanyaan_1">1. Saya merasa Optimis dengan masa depan saya</string>
+    <string name="pertanyaan_2">2. Saya merasa diri saya berguna</string>
+    <string name="pertanyaan_3">3. Saya merasakan ketenangan pada diri saya</string>
+    <string name="pertanyaan_4">4. Saya Merasakan ketertarikan dengan orang lain</string>
+    <string name="pertanyaan_5">5. Saya mempunyai cukup energi untuk diri saya maupun untuk berinteraksi dengan orang lain</string>
+    <string name="pertanyaan_6">6. Saya berkutat cukup baik dengan masalah yang ada</string>
+    <string name="pertanyaan_7">7. Saya dapat berpikir dengan jernih</string>
+    <string name="pertanyaan_8">8. Saya merasa baik tentang diri saya sendiri</string>
+    <string name="pertanyaan_9">9. Saya mempunyai hubungan dekat dengan orang lain </string>
+    <string name="pertanyaan_10">10. Saya merasa percaya diri</string>
+    <string name="pertanyaan_11">11. Saya bisa memutuskan sendiri tentang berbagai hal </string>
+    <string name="pertanyaan_12">12. Saya merasa dicintai</string>
+    <string name="pertanyaan_13">13. Saya tertarik dengan hal-hal baru</string>
+    <string name="pertanyaan_14">14. Saya merasa bahagia</string>
+    <string name="keterangan_jawaban">1 = Tidak pernah sama sekali \n2 = Jarang \n3 = Terkadang \n4 = Sering \n5 = Setiap saat</string>
+</resources>

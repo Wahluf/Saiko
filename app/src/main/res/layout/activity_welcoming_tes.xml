@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    tools:context=".tesPsikolog.WelcomingTesActivity">
+
+    <TextView
+        android:id="@+id/tv_peringatan_tes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat Datang"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:textSize="17dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_isi_peringatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tv_border"
+        android:layout_below="@id/tv_peringatan_tes"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_peringatan_headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anda akan mengisi tes penilaian mental versi Warwick-Edinburgh. Mohon untuk memperhatikan beberapa hal berikut:"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:id="@+id/tv_peringatan_isi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ketentuan_tes"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:id="@+id/tv_peringatan_konsidi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textStyle="italic"
+            android:text="\nApabila Anda menyetujui hal diatas, silakan tekan tombol Lanjut."
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_masuk"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/btn_rounded_merah"
+        android:fontFamily="sans-serif-medium"
+        android:text="Lanjut"
+        android:textAllCaps="false"
+        android:textColor="@color/colorNavigationText"
+        android:layout_below="@id/ll_isi_peringatan"
+        android:onClick="masukPeringatan"/>
+
+</RelativeLayout>

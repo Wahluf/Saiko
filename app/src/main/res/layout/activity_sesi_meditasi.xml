@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".meditasi.SesiMeditasiActivity">
+
+    <ImageView
+        android:id="@+id/iv_sesi_meditsi"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/meditation" />
+
+    <TextView
+        android:id="@+id/tv_meditasi_dasar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Meditasi Dasar"
+        android:textColor="@color/black"
+        android:layout_below="@id/iv_sesi_meditsi"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_jumlah_sesi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="5 Sesi"
+        android:textColor="@color/gray"
+        android:layout_below="@id/tv_meditasi_dasar"
+        android:textSize="14dp"/>
+
+    <TextView
+        android:id="@+id/tv_deskripsi_sesi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif"
+        android:text="Sesi ini merupakan sesi dasar, silahkan persiapkan tempat sebaik mungkin agar dapat meraih ketenangan dengan sempurna."
+        android:textColor="@color/gray"
+        android:layout_below="@id/tv_jumlah_sesi"
+        android:textSize="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/tv_deskripsi_sesi"
+        android:orientation="horizontal"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_pertama"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/iv_pertama"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_one"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_kedua"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/iv_kedua"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_kedua"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_ketiga"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/iv_ketiga"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_ketiga"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_keempat"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/iv_keempat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_keempat"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_kelima"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/iv_kelima"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_kelima"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

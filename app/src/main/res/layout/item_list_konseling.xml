@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="126dp"
+    android:layout_gravity="center"
+    android:layout_marginLeft="15dp"
+    android:id="@+id/cv_klik"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="15dp"
+    app:cardCornerRadius="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/img_item_profil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:src="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/tv_konseling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/img_item_profil"
+            android:layout_toRightOf="@id/img_item_profil"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:hint="Nama Tempat Konseling"
+            android:textColor="@color/hitam"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tv_kategori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_konseling"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_toEndOf="@id/img_item_profil"
+            android:layout_toRightOf="@id/img_item_profil"
+            android:fontFamily="sans-serif-medium"
+            android:hint="konseling_mahasiswa"
+            android:textColor="@color/abu_abu"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/ic_tempat"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/ic_tempat"
+            android:layout_toEndOf="@id/img_item_profil"
+            android:layout_toRightOf="@id/img_item_profil"
+            android:layout_below="@id/tv_kategori"/>
+
+        <TextView
+            android:id="@+id/tv_lokasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_kategori"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/ic_tempat"
+            android:layout_toRightOf="@id/ic_tempat"
+            android:fontFamily="sans-serif-medium"
+            android:hint="Jalan Kaliurang KM 14.5"
+            android:lines="2"
+            android:textColor="@color/abu_abu"
+            android:textSize="12dp" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

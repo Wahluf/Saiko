@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".masuk.MasukActivity">
+
+    <TextView
+        android:id="@+id/tv_saiko_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="Saiko"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/tv_masuk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_below="@id/tv_saiko_heading"
+        android:fontFamily="sans-serif-medium"
+        android:text="Masuk"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/tv_saiko_heading" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/tv_masuk"
+        android:background="@drawable/et_border"/>
+
+    <EditText
+        android:id="@+id/et_kata_sandi"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/et_email"
+        android:contentDescription="Kata Sandi"
+        android:ems="10"
+        android:hint="Kata Sandi"
+        android:inputType="textPassword"
+        android:background="@drawable/et_border"/>
+
+    <Button
+        android:id="@+id/btn_masuk"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/et_kata_sandi"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/btn_rounded_biru"
+        android:fontFamily="sans-serif-medium"
+        android:text="Masuk"
+        android:onClick="launchMainMenu"
+        android:textAllCaps="false"
+        android:textColor="@color/colorNavigationText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/tv_punya_akun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Tidak punya akun ?"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tv_daftar_dulu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="sans-serif-medium"
+            android:onClick="launchDaftar"
+            android:text="Daftar"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

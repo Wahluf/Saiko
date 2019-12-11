@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    tools:context=".tesPsikolog.PeringatanTesActivity">
+
+    <TextView
+        android:id="@+id/tv_peringatan_tes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Peringatan"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/red"
+        android:textSize="17dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_isi_peringatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tv_border"
+        android:layout_below="@id/tv_peringatan_tes"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_peringatan_headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Catatan penting sebelum Anda memulai:"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-medium"/>
+
+        <TextView
+            android:id="@+id/tv_peringatan_isi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\n1. Alat tes yang terdapat di laman ini tidak dapat digunakan sebagai acuan diagnosis, namun hanya memberikan gambaran umum kondisi Anda saat ini.
+        \n\n2. Alat tes yang terdapat di laman ini masih dalam pengembangan. Jawaban Anda akan kami gunakan untuk pengembangan lebih lanjut secara anonim.
+        \n\n3. Apabila Anda merasa memiliki masalah dan memerlukan penanganan lebih lanjut, silakan menghubungi bantuan profesional di dekat Anda."
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_masuk"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/btn_rounded_merah"
+        android:fontFamily="sans-serif-medium"
+        android:text="Ok"
+        android:textAllCaps="false"
+        android:textColor="@color/colorNavigationText"
+        android:layout_below="@id/ll_isi_peringatan"
+        android:onClick="masukTes"/>
+
+</RelativeLayout>
