@@ -16,13 +16,13 @@ public class MenuMeditasiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_meditasi);
     }
-//
-//    public void masukSesi(View view) {
-//        Intent intent = new Intent(MenuMeditasiActivity.this, SesiMeditasiActivity.class);
-//        startActivity(intent);
-//    }
-//
-//    public void masukTunggu(View view) {
-//        Toast.makeText(getApplicationContext(),"Mohon Maaf untuk sesi ini, Anda harus berlangganan",Toast.LENGTH_SHORT).show();
-//    }
+
+    public void masukSesi(View view) {
+        Intent intent = new Intent(MenuMeditasiActivity.this, SesiMeditasiActivity.class);
+        startActivity(intent);
+    }
+
+    public void masukTunggu(View view) {
+        Toast.makeText(getApplicationContext(),"Mohon Maaf untuk sesi ini, Anda harus berlangganan",Toast.LENGTH_SHORT).show();
+    }
 }
