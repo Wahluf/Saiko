@@ -43,4 +43,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.0.0'
     implementation 'androidx.navigation:navigation-ui:2.1.0'
 
+    //Firebase
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'  // Buat firebaseUI (LOGIN)
+    implementation 'com.google.firebase:firebase-auth:17.0.0' // Buat firebaseAuth (LOGIN)
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'  // Buat firebaseAnalytic
+    implementation 'com.google.firebase:firebase-database:19.2.0'   //Buat firebase DB
 }
+
+apply plugin: 'com.google.gms.google-services'
