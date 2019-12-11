@@ -64,7 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:onClick="sesi1">
 
             <ImageView
                 android:id="@+id/iv_pertama"
@@ -77,7 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:onClick="sesi2">
 
             <ImageView
                 android:id="@+id/iv_kedua"
