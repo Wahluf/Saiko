@@ -1,26 +1,57 @@
 package com.example.saiko;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
+import com.example.saiko.fragment.HomeFragment;
+import com.example.saiko.fragment.KonselingFragment;
+import com.example.saiko.fragment.MeditasiFragment;
+import com.example.saiko.fragment.ProfileFragment;
+import com.example.saiko.masuk.PilihMasukActivity;
+import com.example.saiko.meditasi.SesiMeditasiActivity;
+import com.example.saiko.profile.EditProfileActivity;
+import com.example.saiko.profile.TentangActivity;
 import com.example.saiko.tesPsikolog.WelcomingTesActivity;
 import com.example.saiko.meditasi.MenuMeditasiActivity;
 import com.example.saiko.profile.ProfileActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Bagian Image Switcher
-    private ImageView previousbtn, nextbtn;
-    private ImageSwitcher imgsw;
-    private int[] images = {R.mipmap.quotes1, R.mipmap.quotes2, R.mipmap.quotes3, R.mipmap.quotes4, R.mipmap.quotes5};
-    private int position = 0;
+    //Variabel Tombol"
+    private Button btnHapusAkun, btnLogOut;
+    private TextView tvNama, tvEmail;
+
+    //Variabel Firebase
+    private FirebaseAuth auth;
+    private DatabaseReference db;
+    private FirebaseDatabase dbf;
+
+    //Bottom Navigation
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,55 +61,146 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Image Switcher
-        previousbtn = findViewById(R.id.iv_previous);
-        nextbtn = findViewById(R.id.iv_next);
-        imgsw = findViewById(R.id.is_motivasi);
-        imgsw.setFactory(new ViewSwitcher.ViewFactory() {
+        bottomNavigationView = findViewById(R.id.bottomNav);
+
+        if (savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new HomeFragment()).commit();
+        }
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public View makeView() {
-                ImageView imgVw= new ImageView(MainActivity.this);
-                imgVw.setImageResource(images[position]);
-                return imgVw;
-            }
-        });
-        imgsw.setInAnimation(this, android.R.anim.slide_in_left);
-        imgsw.setOutAnimation(this, android.R.anim.slide_out_right);
-        previousbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(position>0)
-                    position--;
-                else if(position<0)
-                    position = 0;
-                imgsw.setImageResource(images[position]);
-            }
-        });
-        nextbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(position<images.length)
-                    position++;
-                if(position>=images.length)
-                    position = images.length-1;
-                imgsw.setImageResource(images[position]);
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment fragment = null;
+
+                switch (menuItem.getItemId()){
+                    case R.id.homeFragment:
+                        fragment = new HomeFragment();
+                        break;
+                    case R.id.meditasiFragment:
+                        fragment = new MeditasiFragment();
+                        break;
+                    case R.id.konselingFragment:
+                        fragment = new KonselingFragment();
+                        break;
+                    case R.id.profileFragment:
+                        fragment = new ProfileFragment();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
+
+                return true;
             }
         });
 
+        //Profile
+        //get firebase auth instance
+        auth = FirebaseAuth.getInstance();
+
+        //get current user
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        //Hapus akun
+        btnHapusAkun = (Button) findViewById(R.id.btn_hapus_akun);
+        btnHapusAkun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(user != null){
+                    user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(MainActivity.this, "Akun Anda berhasil dihapus", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(MainActivity.this, PilihMasukActivity.class));
+                                finish();
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+        //Sign Out
+        btnLogOut = (Button) findViewById(R.id.btn_keluar);
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auth.signOut();
+                startActivity(new Intent(MainActivity.this, PilihMasukActivity.class));
+                finish();
+            }
+        });
+
+        //Liatin nama sama email
+        tvNama = (TextView) findViewById(R.id.tv_nama_pengguna);
+        tvEmail = (TextView) findViewById(R.id.tv_email_pengguna);
+
+        // Baca data
+        dbf = FirebaseDatabase.getInstance();
+        db = dbf.getReference("Data Pengguna");
+        Query query = db.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                    String Rnama = "" + ds.child("nama").getValue();
+                    String Remail = "" + ds.child("email").getValue();
+
+                    tvNama.setText(Rnama);
+                    tvEmail.setText(Remail);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 
-    public void masukProfile(View view) {
-        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-        startActivity(intent);
+    public void masukPsikologi(View view) {
+        Toast.makeText(getApplicationContext(),"Coming Soon!!!",Toast.LENGTH_SHORT).show();
     }
 
     public void testPsikolog(View view) {
-        Intent intent = new Intent(MainActivity.this, WelcomingTesActivity.class);
+        Intent intent = new Intent(this, WelcomingTesActivity.class);
         startActivity(intent);
     }
 
     public void masukMeditasi(View view) {
-        Intent intent = new Intent(MainActivity.this, MenuMeditasiActivity.class);
+        Intent intent = new Intent(this, MenuMeditasiActivity.class);
+        startActivity(intent);
+    }
+
+
+    //Meditasi
+    public void masukSesi(View view) {
+        Intent intent = new Intent(this, SesiMeditasiActivity.class);
+        startActivity(intent);
+    }
+
+    public void masukTunggu(View view) {
+        Toast.makeText(getApplicationContext(),"Mohon Maaf untuk sesi ini, Anda harus berlangganan",Toast.LENGTH_SHORT).show();
+    }
+
+    //Profile
+    public void masukEditProfile(View view) {
+        Intent intent = new Intent(this, EditProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void masukBerlangganan(View view) {
+        Toast.makeText(getApplicationContext(),"Coming Soon!!!",Toast.LENGTH_SHORT).show();
+    }
+
+    public void menujuTentang(View view) {
+        Intent intent = new Intent(this, TentangActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void masukKonselingGratis(View view) {
+        Intent intent = new Intent(this, com.example.saiko.konseling.KonselingUtamaActivity.class);
         startActivity(intent);
     }
 }

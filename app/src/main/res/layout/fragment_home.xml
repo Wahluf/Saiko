@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_atas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_hallo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Hallo,"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_nama_kamu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Nama Kamu"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@id/tv_hallo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageSwitcher
+                android:id="@+id/is_motivasi"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/tv_hallo"
+                android:layout_marginTop="30dp"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp">
+
+                //Test Psikolog
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_test_psikologi"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="330dp"
+                    app:cardCornerRadius="15dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_ic_background_test_psikologi"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="13dp"
+                        android:src="#b3d9ff" />
+
+                    <ImageView
+                        android:id="@+id/ic_test_psikolog"
+                        android:layout_width="37dp"
+                        android:layout_height="37dp"
+                        android:layout_marginLeft="38dp"
+                        android:layout_marginTop="26dp"
+                        app:srcCompat="@drawable/ic_test" />
+
+                    <TextView
+                        android:id="@+id/tv_test_psikologi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Test Psikologi"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_status_test_psikologi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="100dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:hint="Anda belum melakukan Tes"
+                        android:textSize="12dp"
+                        android:textStyle="italic" />
+
+                    <Button
+                        android:id="@+id/btn_mulai_test"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@drawable/btn_gradient_blue"
+                        android:text="Mulai Test"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:onClick="testPsikolog"/>
+                </androidx.cardview.widget.CardView>
+
+                //Meditasi
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_meditasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_below="@id/cv_test_psikologi"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_ic_background_meditasi"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="13dp"
+                        android:src="#b3d9ff" />
+
+                    <ImageView
+                        android:id="@+id/ic_meditasi"
+                        android:layout_width="37dp"
+                        android:layout_height="37dp"
+                        android:layout_marginLeft="37dp"
+                        android:layout_marginTop="26dp"
+                        app:srcCompat="@drawable/ic_meditasi" />
+
+                    <TextView
+                        android:id="@+id/tv_meditasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Meditasi"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_status_meditasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="100dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:hint="Anda belum melakukan Meditasi"
+                        android:textSize="12dp"
+                        android:textStyle="italic" />
+
+                    <Button
+                        android:id="@+id/btn_mulai_meditasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@drawable/btn_gradient_blue"
+                        android:text="Mulai Meditasi"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"
+                        android:onClick="masukMeditasi"
+                        android:textStyle="bold"/>
+                </androidx.cardview.widget.CardView>
+
+                //konseling
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_konseling"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_below="@id/cv_meditasi"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="15dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_ic_background_konseling"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="13dp"
+                        android:src="#b3d9ff" />
+
+                    <ImageView
+                        android:id="@+id/ic_konseling"
+                        android:layout_width="37dp"
+                        android:layout_height="37dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="27dp"
+                        app:srcCompat="@drawable/ic_konseling" />
+
+                    <TextView
+                        android:id="@+id/tv_konseling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Konseling"
+                        android:textColor="@color/black"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_status_konseling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="100dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:hint="Anda belum melakukan Konseling"
+                        android:textSize="12dp"
+                        android:textStyle="italic" />
+
+                    <Button
+                        android:id="@+id/btn_mulai_konseling"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="120dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@drawable/btn_gradient_blue"
+                        android:text="Mulai Konseling"
+                        android:onClick="masukPsikologi"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
