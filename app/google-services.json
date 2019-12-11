@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "203779449499",
+    "firebase_url": "https://saiko-master.firebaseio.com",
+    "project_id": "saiko-master",
+    "storage_bucket": "saiko-master.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203779449499:android:6acc7c81e910ae73dc9c3e",
+        "android_client_info": {
+          "package_name": "com.example.saiko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203779449499-slhjoslbccne7a5c82j73jvo5n9g98po.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu-Nr06x_jtaSEfaW5iT0bBO83w2B9FqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203779449499-slhjoslbccne7a5c82j73jvo5n9g98po.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
