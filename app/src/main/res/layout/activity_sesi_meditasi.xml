@@ -92,7 +92,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:onClick="sesi3">
 
             <ImageView
                 android:id="@+id/iv_ketiga"
@@ -105,7 +106,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:onClick="sesi4">
 
             <ImageView
                 android:id="@+id/iv_keempat"
@@ -118,7 +120,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:onClick="sesi5">
 
             <ImageView
                 android:id="@+id/iv_kelima"

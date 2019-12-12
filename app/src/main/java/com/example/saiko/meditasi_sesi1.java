@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.saiko.meditasi.SesiMeditasiActivity;
+
 import java.sql.Struct;
 
 public class meditasi_sesi1 extends AppCompatActivity {
@@ -124,6 +126,18 @@ public class meditasi_sesi1 extends AppCompatActivity {
     public void nextBtnClick(View view) {
         mp.stop();
         Intent intent = new Intent(meditasi_sesi1.this, meditasi_sesi2.class);
+        startActivity(intent);
+    }
+
+    public void backBtn(View view) {
+        mp.stop();
+        Intent intent = new Intent(meditasi_sesi1.this, SesiMeditasiActivity.class);
+        startActivity(intent);
+    }
+
+    public void prevBtnClick5(View view) {
+        mp.stop();
+        Intent intent = new Intent(meditasi_sesi1.this, meditasi_sesi5.class);
         startActivity(intent);
     }
 }

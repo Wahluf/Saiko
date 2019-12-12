@@ -12,12 +12,11 @@
         android:roundIcon="@mipmap/saiko_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".meditasi_sesi2">
-        </activity>
-        <activity
-            android:name=".meditasi_sesi1">
-        </activity>
+        <activity android:name=".meditasi_sesi5"></activity>
+        <activity android:name=".meditasi_sesi4" />
+        <activity android:name=".meditasi_sesi3" />
+        <activity android:name=".meditasi_sesi2" />
+        <activity android:name=".meditasi_sesi1" />
         <activity
             android:name=".tesPsikolog.HasilTestActivity"
             android:label="Hasil Test"
