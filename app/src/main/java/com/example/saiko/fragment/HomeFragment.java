@@ -118,7 +118,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
                     String Rnama = "" + ds.child("nama").getValue();
-                    tvNama.setText(Rnama);
+                    tvNama.setText("Hallo " + Rnama);
                 }
             }
 
