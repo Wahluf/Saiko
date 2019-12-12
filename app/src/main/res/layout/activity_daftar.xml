@@ -11,7 +11,7 @@
         android:id="@+id/tv_saiko_heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:text="Saiko"
         android:textColor="@color/colorPrimary"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:layout_below="@id/tv_saiko_heading"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif-black"
         android:text="Masuk"
         android:textColor="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@+id/tv_saiko_heading" />
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/et_border"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:hint="Nama"
         android:inputType="textPersonName"
         android:layout_below="@id/tv_daftar"/>

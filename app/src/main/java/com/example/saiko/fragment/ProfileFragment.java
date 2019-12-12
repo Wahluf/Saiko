@@ -114,7 +114,6 @@ public class ProfileFragment extends Fragment {
                     tvEmail.setText(Remail);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
