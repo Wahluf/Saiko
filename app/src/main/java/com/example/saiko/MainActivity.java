@@ -124,11 +124,16 @@ public class MainActivity extends AppCompatActivity {
     public void menujuTentang(View view) {
         Intent intent = new Intent(this, TentangActivity.class);
         startActivity(intent);
-
     }
 
     public void masukKonselingGratis(View view) {
         Intent intent = new Intent(this, com.example.saiko.konseling.KonselingUtamaActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

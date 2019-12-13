@@ -29,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.security.Key;
+
 public class EditProfileActivity extends AppCompatActivity {
     //Variabel tombol dll
     private EditText kNama, kEmail, kNoHp, kUsia, kDomisili;
@@ -36,6 +38,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private RadioGroup jenisKelGroup;
     private Button btnSimpan;
     private String jenisKelamin, email, nama, noHp, usia, domisili;
+    private String uidAsli;
 
     //Variabel Firebase
     //private FirebaseAuth auth;
@@ -43,8 +46,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
     private DatabaseReference dbNama, dbEmail, dbNoHp, dbUsia, dbJenisKel, dbDomisili;
-    private DatabaseReference db, dbu;
-    private FirebaseDatabase dbf;
+    private DatabaseReference db, dbu, dbR1;
+    private FirebaseDatabase dbf, db1;
     private Query query;
 
     @Override
@@ -141,15 +144,40 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     private void updateData(DataUpdate data) {
+        Query query = db.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot child : dataSnapshot.getChildren()){
+//                    String rUid = "" + ds.child("uid").getValue();
+                    String key = child.getKey();
+
+                    uidAsli = key;
+//                    uidAsli = rUid;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+        db1 = FirebaseDatabase.getInstance();
+        dbR1 = db1.getReference("Data Pengguna");
         final String user_id = user.getUid();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference ref = database.getReference("server/saving-data/fireblog");
-        DatabaseReference ref = database.getReference();
-        DatabaseReference usersRef = ref.child("Data Pengguna");
-        DatabaseReference hopperRef = usersRef.child(user_id);
+        DatabaseReference ref = database.getReference("Data Pengguna");
+        DatabaseReference usersRef = ref.child(user_id);
+        //DatabaseReference hopperRef = usersRef.child(user_id);
+
+//        db1 = FirebaseDatabase.getInstance();
+//        dbR1 = db1.getReference("Data Pengguna");
+//        String key = dbR1.push().getKey();
 
         Map<String, Object> hopperUpdates = new HashMap<>();
         hopperUpdates.put("nama", nama);
@@ -159,7 +187,9 @@ public class EditProfileActivity extends AppCompatActivity {
         hopperUpdates.put("domisili", domisili);
         hopperUpdates.put("jenisKel", jenisKelamin);
 
-        hopperRef.child("Data Pengguna").child(user_id).updateChildren(hopperUpdates);
+        dbR1.child(user.getUid()).setValue(hopperUpdates);
+//        dbR1.child(uidAsli).setValue(hopperUpdates);
+//        hopperRef.child("Data Pengguna").child(user_id).updateChildren(hopperUpdates);
 
         Toast.makeText(getApplicationContext(), "Perubahan Disimpan", Toast.LENGTH_SHORT).show();
     }

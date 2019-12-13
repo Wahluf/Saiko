@@ -13,8 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.saiko.R;
+import com.example.saiko.masuk.DataRegis;
 import com.example.saiko.masuk.PilihMasukActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
-    //Variabel Tombol"
+    //Variabel Tombol" dll
     private Button btnHapusAkun, btnLogOut;
     private TextView tvNama, tvEmail;
 
@@ -34,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private DatabaseReference db;
     private FirebaseDatabase dbf;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,9 +27,13 @@ import java.util.UUID;
 public class DaftarActivity extends AppCompatActivity {
     private EditText inputNama, inputEmail, inputPassword;
     private Button btnSignUp;
-    private FirebaseAuth auth;
-    private DatabaseReference db;
     private String nama, email, inputNoHp, inputUsia, inputJenisKel, inputDomisili, uniqueID;
+
+    //Variabel Firebase
+    private FirebaseAuth auth;
+    private DatabaseReference db, dbR;
+    private FirebaseDatabase db1;
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +56,14 @@ public class DaftarActivity extends AppCompatActivity {
         inputJenisKel = "";
         inputDomisili = "";
         // progressBar = (ProgressBar)
-        uniqueID = UUID.randomUUID().toString();
+        db1 = FirebaseDatabase.getInstance();
+        dbR = db1.getReference("Data Pengguna");
+//        uniqueID = dbR;
+
+//        auth = FirebaseAuth.getInstance();
+//        user = auth.getCurrentUser();
+//        final String uniqueID = user.getUid(); //Null, bikin error :(
+
 
         //Saat tombol SignUp ditekan
         btnSignUp.setOnClickListener(new View.OnClickListener(){
@@ -86,7 +98,7 @@ public class DaftarActivity extends AppCompatActivity {
                         if(!task.isSuccessful()){
                             Toast.makeText(DaftarActivity.this, "Pendaftaran gagal", Toast.LENGTH_SHORT).show();
                         } else {
-                            submitData(new DataRegis(nama, email, inputNoHp, inputUsia, inputJenisKel, inputDomisili, uniqueID));
+                            submitData(new DataRegis(nama, email, inputNoHp, inputUsia, inputJenisKel, inputDomisili/*, uniqueID*/));
                             Toast.makeText(DaftarActivity.this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(DaftarActivity.this, MasukActivity.class));
                             finish();
@@ -97,6 +109,7 @@ public class DaftarActivity extends AppCompatActivity {
         });
     }
 
+    //fungsi submit data registrasi pengguna ke database
     private void submitData(DataRegis data){
         db.child("Data Pengguna").push().setValue(data).addOnSuccessListener(this, new OnSuccessListener<Void>() {
             @Override

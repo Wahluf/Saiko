@@ -13,6 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.saiko.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -23,6 +28,11 @@ public class TestActivity extends AppCompatActivity {
     int jumlah;
     String kesimpulan;
 
+    //Variabel Firebase
+    private FirebaseAuth auth;
+    private FirebaseDatabase db;
+    private DatabaseReference dbR;
+    private FirebaseUser user;
 
     private String KEY_RESULT = "HASIL";
 
@@ -32,6 +42,13 @@ public class TestActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
         getSupportActionBar().hide(); //hide the title bar
         setContentView(R.layout.activity_test);
+
+        //Variabel Firebase
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+        dbR = db.getReference("Data Pengguna");
+        user = auth.getCurrentUser();
+        String key = dbR.push().getKey();
 
         rg1 = findViewById(R.id.rg_1);
         rg2 = findViewById(R.id.rg_2);
@@ -180,5 +197,12 @@ public class TestActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    //Submit data kesimpulan hasil tes kesehatan mental pengguna ke database
+    private void submitData(String key, int ksmpln){
+//        db.child("Data Pengguna".user.getUid()).push().setValue(data);
+        int nKesimpulan = ksmpln;
+        dbR.child(key).setValue(nKesimpulan);
     }
 }

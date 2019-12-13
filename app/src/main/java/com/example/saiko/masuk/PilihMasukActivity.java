@@ -47,6 +47,12 @@ public class PilihMasukActivity extends AppCompatActivity {
         firebaseAuth.addAuthStateListener(authListener);
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(PilihMasukActivity.this, PilihMasukActivity.class);
+        startActivity(intent);
+    }
+
     //Intent ke tampilan Masuk
     public void launchMasuk(View view) {
         Intent intent = new Intent(PilihMasukActivity.this, MasukActivity.class);
@@ -58,4 +64,7 @@ public class PilihMasukActivity extends AppCompatActivity {
         Intent intent = new Intent(PilihMasukActivity.this, DaftarActivity.class);
         startActivity(intent);
     }
+
+
+
 }

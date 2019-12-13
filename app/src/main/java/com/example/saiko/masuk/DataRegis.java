@@ -84,13 +84,13 @@ public class DataRegis implements Serializable {
                 " " + UID;
     }
 
-    public DataRegis(String nm, String eml, String nohp, String usi4, String jenisk, String dmsli, String uid){
+    public DataRegis(String nm, String eml, String nohp, String usi4, String jenisk, String dmsli/*, String uid*/){
         nama = nm;
         email = eml;
         noHp = nohp;
         usia = usi4;
         jenisKel = jenisk;
         domisili = dmsli;
-        UID = uid;
+//        UID = uid;
     }
 }
