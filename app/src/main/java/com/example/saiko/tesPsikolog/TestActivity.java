@@ -178,10 +178,9 @@ public class TestActivity extends AppCompatActivity {
                         jumlah = r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9 + r10 + r11 + r12 + r13 + r14;
 
                         if (jumlah >= 59) {
-                            kesimpulan = "Kamu Sedang Mengalami Kondisi yang Sehat, Selalu Berpikir Positif dan tetap semangat";
+                            kesimpulan = "Selamat!!! \n\nHasil test yang  telah kamu lakukan menunjukkan Kamu Dalam Kondisi yang Sehat, Anda dapat melakukan layanan meditasi jika anda ingin mencari ketenangan..\n";
                         } else {
-                            kesimpulan = "Kamu Kurang Sehat, Silahkan berkonsultasi kepada seseorang yang ahli dalam bidang ini. " +
-                                    "Kamu juga perlu melakukan meditasi agar memberikanmu ketenangan jiwa";
+                            kesimpulan = "Mohon Maaf, \n\nHasil test yang telah kamu lakukan menunjukkan Kamu dalam kondisi mental yang sedang tidak baik. Kami menyarankan anda untuk melakukan serangkaian layanan seperti Meditasi agar lebih menenagkan anda dan juga melakukan Konseling dengan seorang Profesional\n";
                         }
                         //hasil.setText(kesimpulan);
                         Intent intent = new Intent(TestActivity.this, HasilTestActivity.class);
