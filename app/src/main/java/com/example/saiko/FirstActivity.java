@@ -18,12 +18,23 @@ public class FirstActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
         getSupportActionBar().hide(); //hide the title bar
         setContentView(R.layout.activity_first);
-    }
 
-    //Intent Menuju Halaman Berikutnya
-    public void launchPilihMasukActivity(View view) {
-        Intent intent = new Intent(FirstActivity.this, IntroActivity.class);
-        startActivity(intent);
+        //SplashScreen
+        Thread myThread = new Thread(){
+            @Override
+            public void run() {
+                try{
+                    sleep(1500);
+                    Intent intent = new Intent(FirstActivity.this, IntroActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        myThread.start();
     }
 }
 
