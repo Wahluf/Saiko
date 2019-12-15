@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
+import com.example.saiko.intro.IntroActivity;
 import com.example.saiko.masuk.PilihMasukActivity;
 
 public class FirstActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class FirstActivity extends AppCompatActivity {
 
     //Intent Menuju Halaman Berikutnya
     public void launchPilihMasukActivity(View view) {
-        Intent intent = new Intent(FirstActivity.this, PilihMasukActivity.class);
+        Intent intent = new Intent(FirstActivity.this, IntroActivity.class);
         startActivity(intent);
     }
 }
