@@ -103,11 +103,36 @@ public class EditProfileActivity extends AppCompatActivity {
                     String Rusia = "" + ds.child("usia").getValue();
                     String Rdomisili = "" + ds.child("domisili").getValue();
 
-                    kNama.setText(Rnama);
-                    kEmail.setText(Remail);
-                    kNoHp.setText(RnoHp);
-                    kUsia.setText(Rusia);
-                    kDomisili.setText(Rdomisili);
+                    if(Rnama == null){
+                        kNama.setText(" ");
+                    } else {
+                        kNama.setText(Rnama);
+                    }
+
+                    if(Remail == null){
+                        kEmail.setText(" ");
+                    } else {
+                        kEmail.setText(Remail);
+                    }
+
+                    if(RnoHp != ""){
+                        kNoHp.setText(RnoHp);
+                    } else {
+                        kNoHp.setText(" ");
+                    }
+
+                    if(Rusia != null){
+                        kUsia.setText(Rusia);
+                    } else {
+                        kUsia.setText(" ");
+                    }
+
+                    if(Rdomisili != null){
+                        kDomisili.setText(Rdomisili);
+                    } else {
+                        kDomisili.setHint("Mohon diisi");
+                    }
+
                 }
             }
 
@@ -187,7 +212,7 @@ public class EditProfileActivity extends AppCompatActivity {
         hopperUpdates.put("domisili", domisili);
         hopperUpdates.put("jenisKel", jenisKelamin);
 
-        dbR1.child(user.getUid()).setValue(hopperUpdates);
+        dbR1.child(user.getUid()).updateChildren(hopperUpdates);
 //        dbR1.child(uidAsli).setValue(hopperUpdates);
 //        hopperRef.child("Data Pengguna").child(user_id).updateChildren(hopperUpdates);
 

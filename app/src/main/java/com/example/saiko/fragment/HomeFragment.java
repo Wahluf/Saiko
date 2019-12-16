@@ -1,11 +1,13 @@
 package com.example.saiko.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.saiko.R;
+import com.example.saiko.tesPsikolog.HasilTestActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,12 +31,15 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeFragment extends Fragment {
 
     int counter = 0;
+    int nilaiKsmpln = 0;
+
     View rootView;
     private ImageSwitcher image_switch;
     private Handler pic_image_switch_handler;
 
     //Nama
-    private TextView tvNama;
+    private TextView tvNama, tvStatus;
+    private Button btnTes;
 
     //Variabel Firebase
     private FirebaseAuth auth;
@@ -108,6 +114,8 @@ public class HomeFragment extends Fragment {
 
         //Liatin nama
         tvNama = (TextView) rootView.findViewById(R.id.tv_nama_kamu);
+        tvStatus = (TextView) rootView.findViewById(R.id.tv_status_test_psikologi);
+        btnTes = (Button) rootView.findViewById(R.id.btn_mulai_test);
 
         // Baca data
         dbf = FirebaseDatabase.getInstance();
@@ -118,7 +126,25 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
                     String Rnama = "" + ds.child("nama").getValue();
+                    String Rksmpln = "" + ds.child("nilaiTes").getValue();
+
+//                    nilaiKsmpln = Integer.parseInt(Rksmpln);
+
                     tvNama.setText("Hallo " + Rnama);
+
+                    if(Rksmpln.isEmpty()){
+                        tvStatus.setHint("Lakukan Test untuk memberitahu kondisimu saat ini");
+                    } else {
+                        tvStatus.setHint("Anda sudah melakukan test kesehatan mental");
+                        btnTes.setText("Lihat Hasil Test");
+                        btnTes.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(getActivity(), HasilTestActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                    }
                 }
             }
 

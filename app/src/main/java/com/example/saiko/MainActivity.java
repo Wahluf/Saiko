@@ -40,6 +40,11 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
+    //Variabel Firebase
+    private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase db;
+    private FirebaseUser user;
+    private DatabaseReference dbR;
 
     //Bottom Navigation
     BottomNavigationView bottomNavigationView;

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @IgnoreExtraProperties
 public class DataKesimpulan implements Serializable {
-    private int kesimpulan;
+    private String kesimpulan;
     private String key;
 
     public DataKesimpulan(){
@@ -23,11 +23,11 @@ public class DataKesimpulan implements Serializable {
         this.key = key;
     }
 
-    public int getKesimpulan(){
+    public String getKesimpulan(){
         return kesimpulan;
     }
 
-    public void setKesimpulan(int kesimpulan){
+    public void setKesimpulan(String kesimpulan){
         this.kesimpulan = kesimpulan;
     }
 
@@ -35,7 +35,7 @@ public class DataKesimpulan implements Serializable {
         return " " + kesimpulan;
     }
 
-    public DataKesimpulan(int kesim){
+    public DataKesimpulan(String kesim){
         kesimpulan = kesim;
     }
 }

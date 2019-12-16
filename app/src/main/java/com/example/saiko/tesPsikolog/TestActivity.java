@@ -1,5 +1,6 @@
 package com.example.saiko.tesPsikolog;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,11 +14,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.saiko.R;
+import com.example.saiko.masuk.DataRegis;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -25,13 +34,14 @@ public class TestActivity extends AppCompatActivity {
     TextView hasil;
     Button btnSubmit;
     String n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14;
-    int jumlah;
+    int jumlah, jumlahD;
     String kesimpulan;
+    private String user_id;
 
     //Variabel Firebase
     private FirebaseAuth auth;
-    private FirebaseDatabase db;
-    private DatabaseReference dbR;
+    private FirebaseDatabase db, db1;
+    private DatabaseReference dbR, dbR1, dbR2, dbR3;
     private FirebaseUser user;
 
     private String KEY_RESULT = "HASIL";
@@ -48,6 +58,7 @@ public class TestActivity extends AppCompatActivity {
         db = FirebaseDatabase.getInstance();
         dbR = db.getReference("Data Pengguna");
         user = auth.getCurrentUser();
+        user_id = user.getUid();
         String key = dbR.push().getKey();
 
         rg1 = findViewById(R.id.rg_1);
@@ -177,12 +188,40 @@ public class TestActivity extends AppCompatActivity {
 
                         jumlah = r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9 + r10 + r11 + r12 + r13 + r14;
 
-                        if (jumlah >= 59) {
+                        //hasil.setText(kesimpulan);
+
+                        //Simpan nilai tes ke db
+                        String jumlahS = String.valueOf(jumlah);
+                        submitData(new DataKesimpulan(jumlahS));
+
+//                        dbR2 = FirebaseDatabase.getInstance().getReference();
+//                        Map<String, String> map = new HashMap<>();
+//                        map.put("nilaiTes", jumlahS);
+//                        dbR2.child("Data Pengguna").child(user.getUid()).setValue(map);
+                        // Baca data
+                        Query query = dbR.orderByChild("email").equalTo(user.getEmail());
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                                    String rSimpanNilaiTes = "" + ds.child("nilaiTes").getValue();
+
+                                    jumlahD = Integer.parseInt(rSimpanNilaiTes);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        if (jumlahD >= 59) {
                             kesimpulan = "Selamat!!! \n\nHasil test yang  telah kamu lakukan menunjukkan Kamu Dalam Kondisi yang Sehat, Anda dapat melakukan layanan meditasi jika anda ingin mencari ketenangan..\n";
                         } else {
                             kesimpulan = "Mohon Maaf, \n\nHasil test yang telah kamu lakukan menunjukkan Kamu dalam kondisi mental yang sedang tidak baik. Kami menyarankan anda untuk melakukan serangkaian layanan seperti Meditasi agar lebih menenagkan anda dan juga melakukan Konseling dengan seorang Profesional\n";
                         }
-                        //hasil.setText(kesimpulan);
+
                         Intent intent = new Intent(TestActivity.this, HasilTestActivity.class);
                         intent.putExtra(KEY_RESULT, kesimpulan);
                         startActivity(intent);
@@ -199,9 +238,24 @@ public class TestActivity extends AppCompatActivity {
     }
 
     //Submit data kesimpulan hasil tes kesehatan mental pengguna ke database
-    private void submitData(String key, int ksmpln){
-//        db.child("Data Pengguna".user.getUid()).push().setValue(data);
-        int nKesimpulan = ksmpln;
-        dbR.child(key).setValue(nKesimpulan);
+    private void submitData(DataKesimpulan dataKesimpulan){
+//        db.child("Data Pengguna").user.getUid()).push().setValue(data);
+//        dbR3 = FirebaseDatabase.getInstance().getReference("Data Pengguna");
+//        String lol = user.getUid();
+//        dbR3.child(lol).push().setValue(dataKesimpulan);
+//        db1 = FirebaseDatabase.getInstance();
+//        dbR1 = db1.getReference("Data Pengguna").child(user_id);
+//        DatabaseReference key = dbR1.push();
+//        String jumlahS = String.valueOf(jumlah);
+//        Map<String, Object> hopperUpdates = new HashMap<>();
+//        hopperUpdates.put("nilaiTes", jumlahS);
+//        key.setValue(hopperUpdates);
+
+        DatabaseReference dbR5 = FirebaseDatabase.getInstance().getReference("Data Pengguna");
+        String jumlahS = String.valueOf(jumlah);
+        Map<String, Object> hopperUpdates = new HashMap<>();
+        hopperUpdates.put("nilaiTes", jumlahS);
+        dbR5.child(user.getUid()).updateChildren(hopperUpdates);
+
     }
 }

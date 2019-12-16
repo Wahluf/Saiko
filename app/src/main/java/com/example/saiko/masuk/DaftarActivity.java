@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class DaftarActivity extends AppCompatActivity {
@@ -98,10 +100,25 @@ public class DaftarActivity extends AppCompatActivity {
                         if(!task.isSuccessful()){
                             Toast.makeText(DaftarActivity.this, "Pendaftaran gagal", Toast.LENGTH_SHORT).show();
                         } else {
-                            submitData(new DataRegis(nama, email, inputNoHp, inputUsia, inputJenisKel, inputDomisili/*, uniqueID*/));
+//                            submitData(new DataRegis(nama, email, inputNoHp, inputUsia, inputJenisKel, inputDomisili/*, uniqueID*/));
                             Toast.makeText(DaftarActivity.this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(DaftarActivity.this, MasukActivity.class));
                             finish();
+                        }
+                    }
+                });
+
+                auth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+                    @Override
+                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        if(user != null){
+                            DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                            Map<String, String> map = new HashMap<>();
+                            map.put("nama", nama);
+                            map.put("email", email);
+                            map.put("nilaiTes", "");
+                            ref.child("Data Pengguna").child(user.getUid()).setValue(map);
                         }
                     }
                 });
@@ -131,4 +148,5 @@ public class DaftarActivity extends AppCompatActivity {
         Intent intent = new Intent(DaftarActivity.this, MasukActivity.class);
         startActivity(intent);
     }
+
 }
