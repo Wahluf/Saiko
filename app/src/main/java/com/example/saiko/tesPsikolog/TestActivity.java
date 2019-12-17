@@ -199,24 +199,24 @@ public class TestActivity extends AppCompatActivity {
 //                        map.put("nilaiTes", jumlahS);
 //                        dbR2.child("Data Pengguna").child(user.getUid()).setValue(map);
                         // Baca data
-                        Query query = dbR.orderByChild("email").equalTo(user.getEmail());
-                        query.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                for (DataSnapshot ds : dataSnapshot.getChildren()){
-                                    String rSimpanNilaiTes = "" + ds.child("nilaiTes").getValue();
+//                        Query query = dbR.orderByChild("email").equalTo(user.getEmail());
+//                        query.addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                                for (DataSnapshot ds : dataSnapshot.getChildren()){
+//                                    String rSimpanNilaiTes = "" + ds.child("nilaiTes").getValue();
+//
+//                                    jumlahD = Integer.parseInt(rSimpanNilaiTes);
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                            }
+//                        });
 
-                                    jumlahD = Integer.parseInt(rSimpanNilaiTes);
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-
-                        if (jumlahD >= 59) {
+                        if (jumlah >= 59) {
                             kesimpulan = "Selamat!!! \n\nHasil test yang  telah kamu lakukan menunjukkan Kamu Dalam Kondisi yang Sehat, Anda dapat melakukan layanan meditasi jika anda ingin mencari ketenangan..\n";
                         } else {
                             kesimpulan = "Mohon Maaf, \n\nHasil test yang telah kamu lakukan menunjukkan Kamu dalam kondisi mental yang sedang tidak baik. Kami menyarankan anda untuk melakukan serangkaian layanan seperti Meditasi agar lebih menenagkan anda dan juga melakukan Konseling dengan seorang Profesional\n";

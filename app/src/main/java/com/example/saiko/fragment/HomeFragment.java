@@ -132,19 +132,19 @@ public class HomeFragment extends Fragment {
 
                     tvNama.setText("Hallo " + Rnama);
 
-                    if(Rksmpln.isEmpty()){
-                        tvStatus.setHint("Lakukan Test untuk memberitahu kondisimu saat ini");
-                    } else {
-                        tvStatus.setHint("Anda sudah melakukan test kesehatan mental");
-                        btnTes.setText("Lihat Hasil Test");
-                        btnTes.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(getActivity(), HasilTestActivity.class);
-                                startActivity(intent);
-                            }
-                        });
-                    }
+//                    if(Rksmpln.isEmpty()){
+//                        tvStatus.setHint("Lakukan Test untuk memberitahu kondisimu saat ini");
+//                    } else {
+//                        tvStatus.setHint("Anda sudah melakukan test kesehatan mental");
+//                        btnTes.setText("Lihat Hasil Test");
+//                        btnTes.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                Intent intent = new Intent(getActivity(), HasilTestActivity.class);
+//                                startActivity(intent);
+//                            }
+//                        });
+//                    }
                 }
             }
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.saiko.MainActivity;
 import com.example.saiko.R;
+import com.example.saiko.fragment.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -39,37 +40,37 @@ public class HasilTestActivity extends AppCompatActivity {
         tvHasil = findViewById(R.id.tv_hasil);
 
         // Baca data
-        firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser();
+//        firebaseAuth = FirebaseAuth.getInstance();
+//        user = firebaseAuth.getCurrentUser();
+//
+//        dbf = FirebaseDatabase.getInstance();
+//        db = dbf.getReference("Data Pengguna");
+//
+//        Query query = db.orderByChild("email").equalTo(user.getEmail());
+//        query.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for (DataSnapshot ds : dataSnapshot.getChildren()){
+//                    String rNilaiTes = "" + ds.child("nilaiTes").getValue();
+//
+//                    aNilaiTes = Integer.parseInt(rNilaiTes);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
-        dbf = FirebaseDatabase.getInstance();
-        db = dbf.getReference("Data Pengguna");
+//        if (aNilaiTes >= 59) {
+//            hasil = "Selamat!!! \n\nHasil test yang  telah kamu lakukan menunjukkan Kamu Dalam Kondisi yang Sehat, Anda dapat melakukan layanan meditasi jika anda ingin mencari ketenangan..\n";
+//        } else {
+//            hasil= "Mohon Maaf, \n\nHasil test yang telah kamu lakukan menunjukkan Kamu dalam kondisi mental yang sedang tidak baik. Kami menyarankan anda untuk melakukan serangkaian layanan seperti Meditasi agar lebih menenagkan anda dan juga melakukan Konseling dengan seorang Profesional\n";
+//        }
 
-        Query query = db.orderByChild("email").equalTo(user.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
-                    String rNilaiTes = "" + ds.child("nilaiTes").getValue();
-
-                    aNilaiTes = Integer.parseInt(rNilaiTes);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        if (aNilaiTes >= 59) {
-            hasil = "Selamat!!! \n\nHasil test yang  telah kamu lakukan menunjukkan Kamu Dalam Kondisi yang Sehat, Anda dapat melakukan layanan meditasi jika anda ingin mencari ketenangan..\n";
-        } else {
-            hasil= "Mohon Maaf, \n\nHasil test yang telah kamu lakukan menunjukkan Kamu dalam kondisi mental yang sedang tidak baik. Kami menyarankan anda untuk melakukan serangkaian layanan seperti Meditasi agar lebih menenagkan anda dan juga melakukan Konseling dengan seorang Profesional\n";
-        }
-
-//        Bundle extras = getIntent().getExtras();
-//        hasil = extras.getString(KEY_RESULT);
+        Bundle extras = getIntent().getExtras();
+        hasil = extras.getString(KEY_RESULT);
         tvHasil.setText(hasil);
     }
 
