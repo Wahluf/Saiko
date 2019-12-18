@@ -27,8 +27,8 @@ public class HasilTestActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
 
-    private int aNilaiTes;
-    private String hasil;
+    private int aNilaiTes = 0;
+    private String hasil, rNilaiTes;
     private String KEY_RESULT = "HASIL";
     TextView tvHasil;
 
@@ -39,29 +39,38 @@ public class HasilTestActivity extends AppCompatActivity {
 
         tvHasil = findViewById(R.id.tv_hasil);
 
-        // Baca data
-//        firebaseAuth = FirebaseAuth.getInstance();
-//        user = firebaseAuth.getCurrentUser();
-//
-//        dbf = FirebaseDatabase.getInstance();
-//        db = dbf.getReference("Data Pengguna");
-//
-//        Query query = db.orderByChild("email").equalTo(user.getEmail());
-//        query.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for (DataSnapshot ds : dataSnapshot.getChildren()){
-//                    String rNilaiTes = "" + ds.child("nilaiTes").getValue();
-//
-//                    aNilaiTes = Integer.parseInt(rNilaiTes);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+//         Baca data
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+
+        dbf = FirebaseDatabase.getInstance();
+        db = dbf.getReference("Data Pengguna");
+
+        Query query = db.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                    rNilaiTes = "" + ds.child("nilaiTes").getValue();
+
+                    aNilaiTes = Integer.parseInt(rNilaiTes);
+
+
+                    if (aNilaiTes >= 59) {
+                        hasil = "Selamat!!! \n\nHasil test yang  telah kamu lakukan menunjukkan Kamu Dalam Kondisi yang Sehat, Anda dapat melakukan layanan meditasi jika anda ingin mencari ketenangan..\n";
+                    } else {
+                        hasil= "Mohon Maaf, \n\nHasil test yang telah kamu lakukan menunjukkan Kamu dalam kondisi mental yang sedang tidak baik. Kami menyarankan anda untuk melakukan serangkaian layanan seperti Meditasi agar lebih menenagkan anda dan juga melakukan Konseling dengan seorang Profesional\n";
+                    }
+
+                    tvHasil.setText(hasil);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 //        if (aNilaiTes >= 59) {
 //            hasil = "Selamat!!! \n\nHasil test yang  telah kamu lakukan menunjukkan Kamu Dalam Kondisi yang Sehat, Anda dapat melakukan layanan meditasi jika anda ingin mencari ketenangan..\n";
@@ -69,9 +78,9 @@ public class HasilTestActivity extends AppCompatActivity {
 //            hasil= "Mohon Maaf, \n\nHasil test yang telah kamu lakukan menunjukkan Kamu dalam kondisi mental yang sedang tidak baik. Kami menyarankan anda untuk melakukan serangkaian layanan seperti Meditasi agar lebih menenagkan anda dan juga melakukan Konseling dengan seorang Profesional\n";
 //        }
 
-        Bundle extras = getIntent().getExtras();
-        hasil = extras.getString(KEY_RESULT);
-        tvHasil.setText(hasil);
+//        Bundle extras = getIntent().getExtras();
+//        hasil = extras.getString(KEY_RESULT);
+//        tvHasil.setText(rNilaiTes);
     }
 
     public void masukHome(View view) {

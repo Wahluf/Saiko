@@ -40,8 +40,8 @@ public class TestActivity extends AppCompatActivity {
 
     //Variabel Firebase
     private FirebaseAuth auth;
-    private FirebaseDatabase db, db1;
-    private DatabaseReference dbR, dbR1, dbR2, dbR3;
+    private FirebaseDatabase db, db1, db2;
+    private DatabaseReference dbR, dbR1, dbR2, dbR3, dbR5;
     private FirebaseUser user;
 
     private String KEY_RESULT = "HASIL";
@@ -198,25 +198,26 @@ public class TestActivity extends AppCompatActivity {
 //                        Map<String, String> map = new HashMap<>();
 //                        map.put("nilaiTes", jumlahS);
 //                        dbR2.child("Data Pengguna").child(user.getUid()).setValue(map);
-                        // Baca data
-//                        Query query = dbR.orderByChild("email").equalTo(user.getEmail());
-//                        query.addValueEventListener(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                                for (DataSnapshot ds : dataSnapshot.getChildren()){
-//                                    String rSimpanNilaiTes = "" + ds.child("nilaiTes").getValue();
-//
-//                                    jumlahD = Integer.parseInt(rSimpanNilaiTes);
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                            }
-//                        });
 
-                        if (jumlah >= 59) {
+//                         Baca data
+                        Query query = dbR.orderByChild("email").equalTo(user.getEmail());
+                        query.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                                    String rSimpanNilaiTes = "" + ds.child("nilaiTes").getValue();
+
+                                    jumlahD = Integer.parseInt(rSimpanNilaiTes);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                        if (jumlahD >= 59) {
                             kesimpulan = "Selamat!!! \n\nHasil test yang  telah kamu lakukan menunjukkan Kamu Dalam Kondisi yang Sehat, Anda dapat melakukan layanan meditasi jika anda ingin mencari ketenangan..\n";
                         } else {
                             kesimpulan = "Mohon Maaf, \n\nHasil test yang telah kamu lakukan menunjukkan Kamu dalam kondisi mental yang sedang tidak baik. Kami menyarankan anda untuk melakukan serangkaian layanan seperti Meditasi agar lebih menenagkan anda dan juga melakukan Konseling dengan seorang Profesional\n";
@@ -251,7 +252,8 @@ public class TestActivity extends AppCompatActivity {
 //        hopperUpdates.put("nilaiTes", jumlahS);
 //        key.setValue(hopperUpdates);
 
-        DatabaseReference dbR5 = FirebaseDatabase.getInstance().getReference("Data Pengguna");
+        db2 = FirebaseDatabase.getInstance();
+        dbR5 = db2.getReference("Data Pengguna");
         String jumlahS = String.valueOf(jumlah);
         Map<String, Object> hopperUpdates = new HashMap<>();
         hopperUpdates.put("nilaiTes", jumlahS);
