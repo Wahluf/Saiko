@@ -37,7 +37,7 @@ public class meditasi_sesi1 extends AppCompatActivity {
         waktusekarang = (TextView) findViewById(R.id.waktu_sekarang);
         waktutersisa = (TextView) findViewById(R.id.waktu_tersisa);
 
-        mp = MediaPlayer.create(this, R.raw.hujan);
+        mp = MediaPlayer.create(this, R.raw.hujan_compress);
         mp.setLooping(true);
         mp.seekTo(0);
         mp.setVolume(0.5f, 0.5f);
